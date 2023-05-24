@@ -1,0 +1,10 @@
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: radial-gradient(circle at 0% 0%, #d0f881 0, #d9ef70 8.33%, #e1e45e 16.67%, #e9d74c 25%, #efc939 33.33%, #f4ba26 41.67%, #f8a810 50%, #fc9500 58.33%, #ff8200 66.67%, #ff6e08 75%, #ff571a 83.33%, #ff3d29 91.67%, #ff1138 100%);
+}
+
+.containerPrincipal{
+  flex-grow: 1;
+}
