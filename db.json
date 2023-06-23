@@ -1,0 +1,12 @@
+{
+    "tareas":[
+        {
+            "nombreTarea": "Leer el capitulo 1 del libro",
+            "id": 1
+        },
+        {
+            "nombreTarea": "Limpiar el departamento",
+            "id": 2
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+const URLTareas = import.meta.env.VITE_API_TAREAS
