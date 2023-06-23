@@ -1,12 +1,20 @@
 {
-    "tareas":[
-        {
-            "nombreTarea": "Leer el capitulo 1 del libro",
-            "id": 1
-        },
-        {
-            "nombreTarea": "Limpiar el departamento",
-            "id": 2
-        }
-    ]
+  "tareas": [
+    {
+      "nombreTarea": "Limpiar el departamento",
+      "id": 2
+    },
+    {
+      "nombreTarea": "Ordenar la habitacion",
+      "id": 3
+    },
+    {
+      "nombreTarea": "Cocinar el almuerzo",
+      "id": 4
+    },
+    {
+      "nombreTarea": "Escuchar la radio",
+      "id": 5
+    }
+  ]
 }

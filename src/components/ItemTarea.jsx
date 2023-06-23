@@ -1,6 +1,7 @@
 import { Button, ListGroup } from "react-bootstrap";
 import { consultarBorrarTarea, consultarListaTareas } from "../helpers/queries";
 import Swal from "sweetalert2";
+
 const ItemTarea = ({tarea, setTareas}) => {
   
   const borrarTarea = () =>{
@@ -23,7 +24,8 @@ const ItemTarea = ({tarea, setTareas}) => {
               `La tarea ${tarea.nombreTarea} fue eliminada`,
               'success'
             );
-            consultarListaTareas().then((respuesta) => setTareas(respuesta))
+            consultarListaTareas().then((respuesta) => 
+            setTareas(respuesta))
           }else{
             Swal.fire(
               'Ocurrió un error',
