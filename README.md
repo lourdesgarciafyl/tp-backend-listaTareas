@@ -1,7 +1,6 @@
-# Trabajo práctico de React
-## Ejercicio 4
-## Descripción
-En este ejercicio creamos una lista de tareas, con la posibilidad de añadir y eliminar. Usamos react, react bootstrap, functional components, states, props y componentes controlados.
+# Trabajo práctico de Backend
+## Consigna
+Unir el proyecto desarrollado en el punto anterior con el proyecto de frontend de lista de tareas trabajado en el módulo de react.
 
 ## Autora
 María Lourdes Garcia - [Perfil de Github](https://github.com/lourdesgarciafyl)
