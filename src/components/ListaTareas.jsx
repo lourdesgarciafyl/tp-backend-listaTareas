@@ -1,12 +1,23 @@
 import { ListGroup } from "react-bootstrap";
 import ItemTarea from "./ItemTarea";
+import { useState, useEffect } from "react";
+import { consultarListaTareas } from "../helpers/queries";
 
-const ListaTareas = ({arrayTareas, funcionBorrar}) => {
+const ListaTareas = () => {
+    
+    const [tareas, setTareas] = useState([])
+
+    useEffect(()=>{
+        consultarListaTareas().then((respuesta) =>{
+            console.log(respuesta)
+            setTareas(respuesta)
+        })
+    }, [])
     return (
         <ListGroup>
-            {arrayTareas.map((item, indiceTarea) => (
-             <ItemTarea tarea={item} key={indiceTarea} funcionBorrarParaItem={funcionBorrar}></ItemTarea>
-            ))}
+            {tareas.map((tarea) => 
+             <ItemTarea key={tarea.id} tarea={tarea} setTareas={setTareas}></ItemTarea>
+            )}
         </ListGroup>
     );
 };
