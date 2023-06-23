@@ -40,7 +40,7 @@ export const consultarCrearTarea = async (tarea) => {
 
 export const consultarBorrarTarea = async (id) =>{
     try{
-        const respuesta = await fetch(URLTareas`/${id}`, {
+        const respuesta = await fetch(`${URLTareas}/${id}`, {
             method: "DELETE"
         })
         return respuesta

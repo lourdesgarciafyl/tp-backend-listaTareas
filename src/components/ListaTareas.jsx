@@ -3,17 +3,8 @@ import ItemTarea from "./ItemTarea";
 import { useState, useEffect } from "react";
 import { consultarListaTareas } from "../helpers/queries";
 
-const ListaTareas = () => {
+const ListaTareas = ({tareas, setTareas}) => {
     
-    const [tareas, setTareas] = useState([])
-
-    useEffect(()=>{
-        consultarListaTareas().then((respuesta) =>{
-            console.log(respuesta)
-            setTareas(respuesta)
-        })
-    }, [])
-
     return (
         <ListGroup>
             {tareas.map((tarea) => 

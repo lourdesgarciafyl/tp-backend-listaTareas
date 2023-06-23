@@ -1,16 +1,26 @@
 import { Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { consultarCrearTarea } from "../helpers/queries";
+import { consultarCrearTarea, consultarListaTareas } from "../helpers/queries";
 import { useForm } from "react-hook-form";
+import ListaTareas from "./ListaTareas";
+import { useState, useEffect } from "react";
 
 const FormularioTareas = () => {
     const {register, handleSubmit, formState: {errors}, reset} = useForm()
+    const [tareas, setTareas] = useState([])
+
+    useEffect(()=>{
+        consultarListaTareas().then((respuesta) =>{
+            console.log(respuesta)
+            setTareas(respuesta)
+        })
+    }, []) 
 
     const onSubmit = (tareaNueva) =>{
         consultarCrearTarea(tareaNueva).then((respuesta) =>{
             if(respuesta && respuesta.status === 201){
                 Swal.fire(`Tarea agregada`, `La tarea fue agregada`, `success`)
-                reset()
+                reset()           
             }else{
                 Swal.fire(`Ocurrió un error`, `Intente nuevamente más tarde`, `error`)
             }
@@ -40,6 +50,7 @@ const FormularioTareas = () => {
             <Button variant="primary" type="submit" className="ms-1">Agregar
             </Button>
         </Form>
+        <ListaTareas tareas={tareas} setTareas={setTareas}></ListaTareas>
     </section>
     )
 }

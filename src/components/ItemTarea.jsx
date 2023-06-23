@@ -1,5 +1,5 @@
 import { Button, ListGroup } from "react-bootstrap";
-import { consultarBorrarTarea, consultarListaTareas } from "../helpers/queries";
+import { consultarListaTareas, consultarBorrarTarea } from "../helpers/queries";
 import Swal from "sweetalert2";
 
 const ItemTarea = ({tarea, setTareas}) => {
@@ -26,11 +26,11 @@ const ItemTarea = ({tarea, setTareas}) => {
             );
             consultarListaTareas().then((respuesta) => 
             setTareas(respuesta))
-          }else{
+          } else{
             Swal.fire(
               'Ocurrió un error',
               `La tarea ${tarea.nombreTarea} no pudo ser eliminada`,
-              'success'
+              'error'
             )
           }
         })

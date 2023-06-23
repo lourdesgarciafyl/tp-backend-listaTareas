@@ -1,10 +1,6 @@
 {
   "tareas": [
     {
-      "nombreTarea": "Limpiar el departamento",
-      "id": 2
-    },
-    {
       "nombreTarea": "Ordenar la habitacion",
       "id": 3
     },
@@ -15,6 +11,14 @@
     {
       "nombreTarea": "Escuchar la radio",
       "id": 5
+    },
+    {
+      "nombreTarea": "Agregando probando",
+      "id": 7
+    },
+    {
+      "nombreTarea": "Hacer el practico",
+      "id": 8
     }
   ]
 }
