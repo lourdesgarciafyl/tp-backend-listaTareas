@@ -9,13 +9,6 @@ const FormularioTareas = () => {
     const {register, handleSubmit, formState: {errors}, reset} = useForm()
     const [tareas, setTareas] = useState([])
 
-    useEffect(()=>{
-        consultarListaTareas().then((respuesta) =>{
-            console.log(respuesta)
-            setTareas(respuesta)
-        })
-    }, []) 
-
     const onSubmit = (tareaNueva) =>{
         consultarCrearTarea(tareaNueva).then((respuesta) =>{
             if(respuesta && respuesta.status === 201){
@@ -23,7 +16,7 @@ const FormularioTareas = () => {
                 reset()           
             }else{
                 Swal.fire(`Ocurrió un error`, `Intente nuevamente más tarde`, `error`)
-            }
+            }    
         })
     }
     return (

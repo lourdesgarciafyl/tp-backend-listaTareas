@@ -5,6 +5,12 @@ import { consultarListaTareas } from "../helpers/queries";
 
 const ListaTareas = ({tareas, setTareas}) => {
     
+    useEffect(()=>{
+        consultarListaTareas().then((respuesta)=>{
+        setTareas(respuesta)
+        })
+    }, [])
+    
     return (
         <ListGroup>
             {tareas.map((tarea) => 

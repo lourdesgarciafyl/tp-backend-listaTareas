@@ -19,6 +19,26 @@
     {
       "nombreTarea": "Hacer el practico",
       "id": 8
+    },
+    {
+      "nombreTarea": "Colgar la ropa",
+      "id": 9
+    },
+    {
+      "nombreTarea": "Hacer ejercicio",
+      "id": 10
+    },
+    {
+      "nombreTarea": "Investigar sobre un tema",
+      "id": 11
+    },
+    {
+      "nombreTarea": "Practicar programacion",
+      "id": 12
+    },
+    {
+      "nombreTarea": "Agregar el backend",
+      "id": 13
     }
   ]
 }
