@@ -9,11 +9,20 @@ const FormularioTareas = () => {
     const {register, handleSubmit, formState: {errors}, reset} = useForm()
     const [tareas, setTareas] = useState([])
 
+    useEffect(()=>{
+        consultarListaTareas().then((respuesta) =>{
+            setTareas(respuesta)
+        })
+    }, [])
+
     const onSubmit = (tareaNueva) =>{
         consultarCrearTarea(tareaNueva).then((respuesta) =>{
             if(respuesta && respuesta.status === 201){
                 Swal.fire(`Tarea agregada`, `La tarea fue agregada`, `success`)
-                reset()           
+                reset();
+                consultarListaTareas().then((respuesta) =>{
+                    setTareas(respuesta)
+                })
             }else{
                 Swal.fire(`Ocurrió un error`, `Intente nuevamente más tarde`, `error`)
             }    
@@ -22,7 +31,6 @@ const FormularioTareas = () => {
     return (
         <section>
         <Form onSubmit={handleSubmit(onSubmit)}> 
-                {/* funcion sin parentesis, en caso de que si invocar la funcion como anonima y ahi poner los parametros () => handleSubmit(parametro) */}
             <Form.Group  className="mb-3 d-flex" controlId="tarea">
                 <Form.Control 
                 type="text" 

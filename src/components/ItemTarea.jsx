@@ -16,7 +16,7 @@ const ItemTarea = ({tarea, setTareas}) => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed){
-        consultarBorrarTarea(tarea.id).then((respuesta) =>{
+        consultarBorrarTarea(tarea._id).then((respuesta) =>{
           console.log(respuesta)
           if(respuesta.status === 200){
             Swal.fire(
@@ -24,8 +24,7 @@ const ItemTarea = ({tarea, setTareas}) => {
               `La tarea ${tarea.nombreTarea} fue eliminada`,
               'success'
             );
-            consultarListaTareas().then((respuesta) => 
-            setTareas(respuesta))
+            consultarListaTareas().then((respuesta) => setTareas(respuesta))
           } else{
             Swal.fire(
               'Ocurrió un error',
