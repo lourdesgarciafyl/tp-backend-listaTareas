@@ -49,3 +49,19 @@ export const consultarBorrarTarea = async (id) =>{
         return null
     }
 }
+
+export const consultarEditarTarea = async (tarea, id) => {
+    try {
+        const respuesta = await fetch(URLTareas`/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(tarea)
+        });
+        return respuesta
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}

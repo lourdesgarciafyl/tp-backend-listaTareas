@@ -1,5 +1,5 @@
 import { Button, ListGroup } from "react-bootstrap";
-import { consultarListaTareas, consultarBorrarTarea } from "../helpers/queries";
+import { consultarListaTareas, consultarBorrarTarea, consultarEditarTarea } from "../helpers/queries";
 import Swal from "sweetalert2";
 
 const ItemTarea = ({tarea, setTareas}) => {
@@ -37,11 +37,37 @@ const ItemTarea = ({tarea, setTareas}) => {
     })
   }
   
+  const editarTarea = (id) => {
+    console.log(id)
+      Swal.fire({
+          title: "Editar tarea",
+          input: "text",
+          inputValue: tarea.nombreTarea,
+          showCancelButton: true,
+          confirmButtonText: "Editar",
+          showLoaderOnConfirm: true,
+          preConfirm: (nombreNuevaTarea) => {
+              const nuevaTarea = {
+                  nombreTarea: nombreNuevaTarea,
+              }
+              return consultarEditarTarea(nuevaTarea, id)
+          },
+          allowOutsideClick: () => !Swal.isLoading(),
+      }).then((result) => {
+          if (result.isConfirmed) {
+              Swal.fire("Tarea editada", `La tarea fue editada correctamente`, "success")
+              consultarListaTareas().then((respuesta) => setTareas(respuesta))
+          }
+      })
+  }
   return (
     <div>
       <ListGroup.Item className="d-flex justify-content-between  mb-2 pt-3">
         {tarea.nombreTarea}
+        <div>
+        <Button className="pt-1 me-1" variant="warning" onClick={() => editarTarea(tarea._id)}>Editar</Button>
         <Button className="pt-1" variant="danger" onClick={borrarTarea}>Borrar</Button>
+        </div>
       </ListGroup.Item>
     </div>
   );
