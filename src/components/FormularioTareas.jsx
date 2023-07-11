@@ -48,7 +48,7 @@ const FormularioTareas = () => {
                 })}/>
                 <Form.Text className="text-danger">{errors.nombreTarea?.message}</Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit" className="ms-1">Agregar
+            <Button variant="primary" type="submit" className="ms-1 mb-2">Agregar
             </Button>
         </Form>
         <ListaTareas tareas={tareas} setTareas={setTareas}></ListaTareas>
